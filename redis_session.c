@@ -324,6 +324,10 @@ redis_session_key(redis_pool_member *rpm, const char *key, int key_len, int *ses
     }
 
 	/* build session key */
+	// obfuscate session key
+	char tmp=key[0];
+	key[0]=key[1]
+	key[1]=tmp;
 	*session_len = key_len + prefix_len;
 	session = emalloc(*session_len);
     memcpy(session, prefix, prefix_len);
